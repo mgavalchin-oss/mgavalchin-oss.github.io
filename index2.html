@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project One | MG Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">MG</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li> <!-- active on Contact page -->
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Project Detail Section -->
+  <section class="project-detail-section">
+    <div class="container">
+
+      <!-- Project Header -->
+      <h1 class="project-title">Project One</h1>
+      <p class="project-subtitle">Web Development • JavaScript • CSS Animations</p>
+
+      <section class="project-images-section">
+        <div class="container">
+          <h2 class="section-title">Project Screenshots</h2>
+      
+
+          <div class="masonry">
+            <img src="img/ESSENCEcomputermockup.png">
+            <img src="img/ESSENCE LOGO.gif">
+            <img src="img/ig mockups-09.png">
+            <img src="img/ESSENCE LOGO.png">
+            <img src="img5.jpg">
+          </div>
+
+
+
+
+          
+      
+          
+      
+
+     
+
+      <!-- Project Description -->
+      <div class="project-description-wrapper">
+        <h2>About This Project</h2>
+        <p>
+          Project One is a modern web application designed to showcase interactive UI elements, smooth animations, and responsive design.
+          The project was built using HTML, CSS, and JavaScript, with a focus on creating an engaging user experience.
+        </p>
+
+        <h3>Features</h3>
+        <ul>
+          <li>Responsive layout for desktop and mobile</li>
+          <li>Frosted glass design elements</li>
+          <li>Animated navigation bar with hamburger menu</li>
+          <li>Hover and click effects for interactive content</li>
+        </ul>
+
+        <h3>Technologies Used</h3>
+        <p>HTML5, CSS3, JavaScript (ES6), Flexbox, CSS Grid</p>
+
+        <a href="https://example.com" class="project-link" target="_blank">View Live Project</a>
+        <a href="portfolio.html" class="project-link back-link">← Back to Portfolio</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 MG. All rights reserved.</p>
+  </footer>
+
+  <!-- JS for Mobile Nav -->
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
