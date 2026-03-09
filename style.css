@@ -318,7 +318,7 @@ body::before {
   overflow: hidden;
   aspect-ratio: 4 / 3;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 .project-card img {
