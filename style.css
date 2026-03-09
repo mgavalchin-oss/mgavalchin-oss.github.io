@@ -1,6 +1,7 @@
 /* ========================================
    Base Styles
 ======================================== */
+
 body {
   margin: 0;
   padding: 40px;
@@ -10,11 +11,16 @@ body {
   line-height: 1.75;
   font-size: 16px;
   position: relative;
+
+  /* improvements */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
-  max-width: 65ch;
-  margin-bottom: 1.5rem;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1, h2, h3 {
@@ -38,7 +44,7 @@ body::before {
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.75)),
-    url("img/MAXIMILIAN LOGO VER 3.png") center 52% / cover no-repeat;
+    url("img/MAXIMILIAN LOGO VER 4.png") center 52% / cover no-repeat;
   opacity: 0.5;
   z-index: -1;
 }
@@ -55,9 +61,14 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 24px;
-  margin: clamp(60px, 10vw, 120px) 0 60px;
+  margin: clamp(80px, 10vw, 140px) 0 60px;
   padding: 0 20px;
   text-align: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  letter-spacing: 0.08em;
 }
 
 /* Ensure both header sections align perfectly */
@@ -77,36 +88,40 @@ body::before {
 }
 
 
-
- 
 .header-left h1 span {
   display: block;
   font-family: "Forum", serif;
   font-weight: 500;
   font-size: clamp(3.8rem, 8.5vw, 6.5rem);
-  line-height: 1.05;
-  letter-spacing: 0.40em;   /* wide luxury tracking */
-  text-transform: uppercase; /* optional but very premium */
+  line-height: 1.08;
+  letter-spacing: 0.32em;   /* slightly more refined spacing */
+  text-transform: uppercase;
   color: hsl(0, 0%, 100%);
   text-rendering: optimizeLegibility;
 }
 
 /* Subtitle */
 .header-left .subtitle {
-  margin-top: 8px;
+  margin-top: 14px; /* more breathing room */
   font-weight: 300;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.20em; /* less harsh spacing */
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: rgba(255,255,255,0.6);
 }
 
-/* About */
 
-/* About Section Spacing */
-.header-right {
-  margin: 50px 0;   /* space above and below the about block */
+.about-me {
+  max-width: 46ch;
+  margin: 18px auto 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: rgba(255,255,255,0.75);
 }
+
 
 
 
@@ -494,61 +509,7 @@ body::before {
   }
 }
 
-/* ========================================
-   Carousel Arrows
-======================================== */
-.carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-}
 
-.carousel-track {
-  display: flex;
-  overflow: hidden;
-  gap: 20px;
-  scroll-behavior: smooth;
-  width: 100%;
-  max-width: 900px;
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  border: none;
-  color: #00d4ff;
-  font-size: 2rem;
-  padding: 10px 15px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  transition: background 0.3s ease;
-}
-
-.carousel-arrow:hover {
-  background: rgba(0,0,0,0.85);
-}
-
-.left-arrow {
-  left: -40px;
-}
-
-.right-arrow {
-  right: -40px;
-}
-
-@media (max-width: 768px) {
-  .left-arrow {
-    left: 5px;
-  }
-  .right-arrow {
-    right: 5px;
-  }
-}
 
 /* ========================================
    Contact Section
@@ -638,35 +599,102 @@ body::before {
 
 
 
+
+
+
+
+
+
+/* ========================================
+   Case Study Layout
+======================================== */
+
+/* ========================================
+   Case Study Layout – Enhanced
+======================================== */
+
+.case-study {
+  max-width: 1200px; /* slightly wider for bigger images */
+  margin: 120px auto;
+  padding: 0 40px;   /* more padding so text isn't too close to edge */
+  
+  display: grid;
+  grid-template-columns: 280px 1fr; /* narrower left panel, bigger images */
+  gap: 80px; /* more space between text and images */
+}
+
+/* Left description panel */
+.project-description {
+  position: sticky;
+  top: 120px;
+  text-align: left;
+}
+
+.project-description p {
+  max-width: none;        /* allow full panel width */
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+/* Masonry image layout */
 .masonry {
-  column-count: 3;
-  column-gap: 1rem;
+  column-count: 2;
+  column-gap: 2rem; /* slightly wider gap for larger images */
 }
 
 .masonry img {
   width: 100%;
-  margin-bottom: 1rem;
-  border-radius: 12px;
+  margin-bottom: 1.5rem;
   break-inside: avoid;
+  border-radius: 0;       /* rectangular edges */
+  display: block;
+  transition: transform 0.35s ease;
 }
 
+.masonry img:hover {
+  transform: scale(1.03); /* slightly stronger hover zoom for bigger images */
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-  .masonry { column-count: 2; }
+  .case-study {
+    grid-template-columns: 1fr;
+  }
+
+  .project-description {
+    position: static;
+    margin-bottom: 40px;
+  }
+
+  .masonry {
+    column-count: 2;
+  }
 }
 
 @media (max-width: 600px) {
-  .masonry { column-count: 1; }
+  .masonry {
+    column-count: 1;
+  }
 }
 
+/* ========================================
+   Rectangular Images for Project Cards & Case Studies
+======================================== */
 
+/* Target project cards, project detail images, screenshots, and masonry images */
+.project-card img,
+.project-detail-image,
+.project-screenshot,
+.masonry img {
+  border-radius: 0; /* remove rounded corners */
+  transition: transform 0.3s ease; /* smooth hover transform */
+}
 
-
-
-
-
-  
-
-
-  
-
-  
+/* Keep hover zoom effect */
+.project-card:hover img,
+.project-screenshot:hover,
+.masonry img:hover,
+.project-detail-image:hover {
+  transform: scale(1.02); /* slightly zoom on hover */
+}
