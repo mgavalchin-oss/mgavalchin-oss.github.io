@@ -24,36 +24,29 @@ a:hover {
    Header
 ======================================== */
 
-.site-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  margin: clamp(80px, 10vw, 140px) 0 20px;
-  padding: 0 20px;
-  text-align: center;
+.header-container {
+  position: relative;
+  display: inline-block; /* shrinks container to header width */
+  margin-bottom: 40px;
 }
 
-.header-left .site-title {
-  font-family: "Forum", serif;
-  font-weight: 500;
-  font-size: clamp(3rem, 6vw, 6.5rem);
-  line-height: 1.08;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: #000;
-  white-space: nowrap;
-  margin-top: 50px;
-  margin-bottom: 30px;
+.header-container h1 {
+  position: relative;
+  z-index: 2; /* ensure text is above watermark */
+  font-size: 3rem;
+  margin: 0;
+  color: #000000;
 }
 
-.header-left .subtitle {
-  margin-top: 0;
-  font-weight: 300;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  color: rgba(0,0,0,0.6);
+.header-container .header-watermark {
+  position: absolute;
+  top: 50%;      /* center vertically */
+  left: 50%;     /* center horizontally */
+  transform: translate(-50%, -50%); /* center the image */
+  width: 200px;  /* adjust size */
+  opacity: 0.08; /* faint watermark */
+  pointer-events: none; /* click passes through */
+  z-index: 1;    /* behind text */
 }
 
 
@@ -250,6 +243,51 @@ a:hover {
   color: #000;
   text-decoration: underline;
 }
+
+
+
+.right-column {
+  text-align: center; /* center content */
+}
+
+.watermarked-header {
+  position: relative;
+  font-family: 'Forum', serif; /* set Forum font */
+  font-size: 64px;
+  color: #000000; /* black text */
+  text-align: center;
+  padding: 80px 0;
+  z-index: 1; /* text stays above watermark */
+}
+
+.watermarked-header::before {
+  content: '';
+  position: absolute;
+  top: 50%;              /* center vertically */
+  left: 50%;             /* center horizontally */
+  transform: translate(-50%, -50%);
+  width: 120%;           /* make it larger than container */
+  height: auto;          
+  max-height: 80%;       /* don't exceed text height too much */
+  background-image: url('img/MAXIMILIAN LOGO.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; 
+  opacity: 0.08;         /* faint watermark */
+  z-index: -1;            
+  pointer-events: none;   /* allow clicks to pass through */
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ========================================
