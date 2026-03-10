@@ -44,7 +44,7 @@ body::before {
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.75)),
-    url("img/MAXIMILIAN LOGO VER 4.png") center 52% / cover no-repeat;
+    url("") center 52% / cover no-repeat;
   opacity: 0.5;
   z-index: -1;
 }
@@ -52,118 +52,32 @@ body::before {
 
 
 /* ========================================
-   Site Header – Fully Centered & Aligned
+   Header – Fully Centered
 ======================================== */
-
 .site-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  margin: clamp(80px, 10vw, 140px) 0 60px;
+  margin: clamp(80px, 10vw, 140px) 0 20px;
   padding: 0 20px;
   text-align: center;
 }
 
-.site-header h1 {
-  margin: 0;
-  letter-spacing: 0.08em;
-}
-
-/* Ensure both header sections align perfectly */
-.header-left,
-.header-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-.site-header {
-  max-width: 52ch;   /* same readable width */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.header-left h1 span {
-  display: block;
+.header-left .site-title {
   font-family: "Forum", serif;
   font-weight: 500;
-  font-size: clamp(3.8rem, 8.5vw, 6.5rem);
+  font-size: clamp(3rem, 6vw, 6.5rem);
   line-height: 1.08;
-  letter-spacing: 0.32em;   /* slightly more refined spacing */
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: hsl(0, 0%, 100%);
-  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
-/* Subtitle */
-.header-left .subtitle {
-  margin-top: 14px; /* more breathing room */
-  font-weight: 300;
-  letter-spacing: 0.20em; /* less harsh spacing */
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.6);
-}
-
-
-.about-me {
-  max-width: 46ch;
-  margin: 18px auto 0;
-  font-size: 1rem;
-  line-height: 1.7;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  text-align: center;
-  color: rgba(255,255,255,0.75);
-}
-
-
-
-
-
-
-
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .header-left h1 span {
-    font-size: clamp(3.5rem, 8vw, 5rem);
-  }
-  .header-right .about {
-    max-width: 50ch;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-left h1 span {
-    font-size: clamp(3rem, 10vw, 4.5rem);
-  }
-  .header-right .about {
-    max-width: 100%; /* full width on mobile */
-  }
-}
-
-@media (max-width: 768px) {
-  .site-header {
-    max-width: 90%;
-  }
-}
-
-.header-body {
-  max-width: 48ch;
-  margin: 20px auto 0;
-  font-size: 1rem;
-  line-height: 1.8;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  text-align: center;
-  color: rgba(255,255,255,0.75);
-}
 
 
 
