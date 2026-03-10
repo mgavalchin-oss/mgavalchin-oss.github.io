@@ -1,7 +1,6 @@
 /* ========================================
    Base Styles
 ======================================== */
-
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -13,52 +12,36 @@ body {
 a {
   color: #000;
   text-decoration: none;
+  transition: opacity 0.3s ease;
 }
 
 a:hover {
   opacity: 0.6;
 }
 
-
 /* ========================================
    Header
 ======================================== */
-
 .header-container {
   position: relative;
-  display: inline-block; /* shrinks container to header width */
+  display: inline-block;
   margin-bottom: 40px;
 }
 
 .header-container h1 {
-  position: relative;
-  z-index: 2; /* ensure text is above watermark */
   font-size: 3rem;
   margin: 0;
-  color: #000000;
+  color: #000;
 }
-
-.header-container .header-watermark {
-  position: absolute;
-  top: 50%;      /* center vertically */
-  left: 50%;     /* center horizontally */
-  transform: translate(-50%, -50%); /* center the image */
-  width: 200px;  /* adjust size */
-  opacity: 0.08; /* faint watermark */
-  pointer-events: none; /* click passes through */
-  z-index: 1;    /* behind text */
-}
-
 
 /* ========================================
    Navigation
 ======================================== */
-
 .site-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 24px 60px; /* slightly taller padding */
   background: rgba(255,255,255,0.95);
   position: sticky;
   top: 0;
@@ -68,7 +51,7 @@ a:hover {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
+  font-size: 1.7rem; /* slightly bigger */
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #000;
@@ -78,16 +61,18 @@ a:hover {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 48px; /* slightly more space between links */
+  font-family: "Forum", serif;
 }
 
 .nav-link {
   color: #000;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1rem; /* slightly bigger text */
   letter-spacing: 0.1em;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .nav-link::after {
@@ -109,27 +94,18 @@ a:hover {
   color: #0077ff;
 }
 
-
-/* ========================================
-   Main Layout
-======================================== */
-
-.main-layout {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  height: 100vh;
-}
-
-
 /* ========================================
    Left Portfolio Column
 ======================================== */
 .portfolio-column {
-  width: 500px; /* fixed width for left column */
-  padding: 80px 40px;
+  position: fixed;
+  left: 0;
+  top: 80px;
+  width: 40vw;  /* slightly smaller left column */
+  height: calc(100vh - 80px);
+  padding: 60px 40px;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #555 transparent;
+  box-sizing: border-box;
 }
 
 .portfolio-column::-webkit-scrollbar {
@@ -145,31 +121,29 @@ a:hover {
   background: transparent;
 }
 
-/* Grid layout: 2 columns inside left portfolio */
+/* Grid layout inside portfolio */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* always 2 columns */
-  gap: 20px; /* spacing between images */
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
 }
 
 /* Project cards */
 .project-card {
-  color: #fff;
-  font-size: 13px;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  font-size: 13px;
+  color: #fff;
 }
 
-/* Square images */
 .project-card img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* square */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  display: block;
   border-radius: 8px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: block;
 }
 
 .project-card:hover img {
@@ -178,51 +152,28 @@ a:hover {
 }
 
 .project-card span {
-  display: block;
   margin-top: 8px;
   text-align: center;
   font-weight: 600;
 }
 
 /* ========================================
-   Responsive Layout for Mobile
-======================================== */
-@media (max-width: 900px) {
-  .main-layout {
-    flex-direction: column;
-  }
-
-  .portfolio-column {
-    width: 100%;
-    padding: 20px;
-    height: auto;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: 1fr; /* single column on mobile */
-    gap: 20px;
-  }
-
-  .project-card img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-/* ========================================
    Right About Panel
 ======================================== */
-
 .about-panel {
-  padding: 140px 140px;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  width: 60vw; /* slightly bigger right column */
+  height: calc(100vh - 80px);
+  padding: 140px 120px;
   border-left: 1px solid rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  background: #fff;
+  box-sizing: border-box;
 }
 
 .about-panel h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Forum", serif;
   font-size: 82px;
   font-style: italic;
   font-weight: 400;
@@ -230,7 +181,7 @@ a:hover {
 }
 
 .about-panel p {
-  max-width: 70ch;   /* wider text block */
+  max-width: 70ch;
   line-height: 1.85;
   font-size: 1.05rem;
   margin-bottom: 80px;
@@ -244,56 +195,9 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
-.right-column {
-  text-align: center; /* center content */
-}
-
-.watermarked-header {
-  position: relative;
-  font-family: 'Forum', serif; /* set Forum font */
-  font-size: 64px;
-  color: #000000; /* black text */
-  text-align: center;
-  padding: 80px 0;
-  z-index: 1; /* text stays above watermark */
-}
-
-.watermarked-header::before {
-  content: '';
-  position: absolute;
-  top: 50%;              /* center vertically */
-  left: 50%;             /* center horizontally */
-  transform: translate(-50%, -50%);
-  width: 120%;           /* make it larger than container */
-  height: auto;          
-  max-height: 80%;       /* don't exceed text height too much */
-  background-image: url('img/MAXIMILIAN LOGO.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain; 
-  opacity: 0.08;         /* faint watermark */
-  z-index: -1;            
-  pointer-events: none;   /* allow clicks to pass through */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ========================================
    Case Study Layout
 ======================================== */
-
 .case-study {
   max-width: 1200px;
   margin: 120px auto;
@@ -313,11 +217,9 @@ a:hover {
   text-align: left;
 }
 
-
 /* ========================================
    Masonry Images
 ======================================== */
-
 .masonry {
   column-count: 2;
   column-gap: 2rem;
@@ -329,10 +231,137 @@ a:hover {
   break-inside: avoid;
   display: block;
   border-radius: 0;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .masonry img:hover {
   transform: scale(1.03);
+}
+
+/* ========================================
+   About Page
+======================================== */
+.about-page {
+  margin-top: 120px;
+  padding: 0 60px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-image img {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+}
+
+.about-content h1 {
+  font-family: "Forum", serif;
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.about-content p {
+  line-height: 1.9;
+  margin-bottom: 24px;
+  max-width: 65ch;
+}
+
+/* Skills */
+.about-skills {
+  margin-top: 60px;
+}
+
+.about-skills h2 {
+  font-family: "Forum", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about-skills ul {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+}
+
+.about-skills li {
+  margin-bottom: 10px;
+}
+
+/* Resume Button */
+.resume-button {
+  display: inline-block;
+  margin-top: 60px;
+  padding: 12px 22px;
+  border: 1px solid #000;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ========================================
+   Responsive Layout
+======================================== */
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .portfolio-column {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    position: relative;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card img {
+    height: auto;
+  }
+
+  .about-panel {
+    width: 100%;
+    padding: 60px 30px;
+    height: auto;
+    position: relative;
+    border-left: none;
+  }
+
+  .site-nav {
+    padding: 16px 30px; /* reduce padding on small screens */
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
 }
 
