@@ -4,61 +4,30 @@
 
 body {
   margin: 0;
-  padding: 40px;
   font-family: "Raleway", sans-serif;
-  background: #000;
-  color: #fff;
-  line-height: 1.75;
-  font-size: 16px;
-  position: relative;
-
-  /* improvements */
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  background: #ffffff;
+  color: #000000;
+  line-height: 1.7;
 }
 
-p {
-  max-width: 60ch;
-  margin-left: auto;
-  margin-right: auto;
+a {
+  color: #000;
+  text-decoration: none;
 }
 
-h1, h2, h3 {
-  line-height: 1.25;
+a:hover {
+  opacity: 0.6;
 }
-
-.section-title {
-  margin-bottom: 0.75rem;
-}
-
-.section-subtitle {
-  margin-bottom: 2.5rem;
-}
-
-/* ========================================
-   Body Background Overlay
-======================================== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.75)),
-    url("") center 52% / cover no-repeat;
-  opacity: 0.5;
-  z-index: -1;
-}
-
 
 
 /* ========================================
-   Header – Fully Centered
+   Header
 ======================================== */
+
 .site-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 24px;
   margin: clamp(80px, 10vw, 140px) 0 20px;
   padding: 0 20px;
@@ -72,37 +41,44 @@ body::before {
   line-height: 1.08;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: hsl(0, 0%, 100%);
+  color: #000;
   white-space: nowrap;
   margin-top: 50px;
   margin-bottom: 30px;
 }
 
-
+.header-left .subtitle {
+  margin-top: 0;
+  font-weight: 300;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(0,0,0,0.6);
+}
 
 
 /* ========================================
-   Navigation Bar
+   Navigation
 ======================================== */
+
 .site-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background: rgba(0,0,0,0.85);
+  background: rgba(255,255,255,0.95);
   position: sticky;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .nav-logo {
-  text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: #000;
   font-family: "Forum", serif;
 }
 
@@ -113,16 +89,14 @@ body::before {
 }
 
 .nav-link {
-  color: #fff;
+  color: #000;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   position: relative;
-  transition: color 0.3s ease;
 }
 
-/* underline only on hover */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -130,7 +104,7 @@ body::before {
   bottom: -5px;
   width: 0%;
   height: 2px;
-  background-color: #fff;
+  background: #000;
   transition: width 0.3s ease;
 }
 
@@ -138,477 +112,189 @@ body::before {
   width: 100%;
 }
 
-.nav-link:hover {
-  color: #ffffff;
-}
-
 .nav-link.active {
-  color: #00d4ff;
+  color: #0077ff;
 }
-
-/* Mobile Hamburger Menu */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 18px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.nav-toggle span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 2px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0,0,0,0.95);
-    flex-direction: column;
-    width: 200px;
-    padding: 20px;
-    gap: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    border-radius: 0 0 0 6px;
-  }
-
-  .nav-links.open li {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.1s;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-}
-
-
-
-
-
-
-
-
 
 
 /* ========================================
-   Portfolio Grid & Project Cards
+   Main Layout
 ======================================== */
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 100vh;
+}
+
+
+/* ========================================
+   Left Portfolio Column
+======================================== */
+.portfolio-column {
+  width: 500px; /* fixed width for left column */
+  padding: 80px 40px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}
+
+.portfolio-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.portfolio-column::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.portfolio-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Grid layout: 2 columns inside left portfolio */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 0 60px;
-  box-sizing: border-box;
+  grid-template-columns: repeat(2, 1fr); /* always 2 columns */
+  gap: 20px; /* spacing between images */
 }
 
-@media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 500px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    padding: 0 10px;
-  }
-}
-
+/* Project cards */
 .project-card {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  text-decoration: none;
-  border-radius: 0px;
+  color: #fff;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Square images */
 .project-card img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1; /* square */
   object-fit: cover;
-  transform: scale(1);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.15));
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.overlay h2 {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.03);
+  opacity: 0.85;
 }
 
-.project-card:hover .overlay {
-  opacity: 1;
-}
-
-.project-card:hover .overlay h2 {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* ========================================
-   Project Detail Section
-======================================== */
-.project-detail-section {
-  padding: 80px 20px;
-  background: #121212;
-  min-height: 100vh;
-  color: #fff;
-}
-
-.project-title {
-  font-size: 2.2rem;
+.project-card span {
+  display: block;
+  margin-top: 8px;
   text-align: center;
-  margin-bottom: 10px;
-}
-
-.project-subtitle {
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #aaa;
-}
-
-.project-image-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.project-detail-image {
-  width: 80%;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.project-detail-image:hover {
-  transform: scale(1.02);
-}
-
-.project-description-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-}
-
-.project-description-wrapper h2,
-.project-description-wrapper h3 {
-  color: #fff;
-  margin-bottom: 15px;
-}
-
-.project-description-wrapper p,
-.project-description-wrapper ul {
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.project-description-wrapper ul li {
-  margin-left: 20px;
-  list-style-type: disc;
-}
-
-.project-link {
-  display: inline-block;
-  margin-right: 20px;
-  color: #fff;
   font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom 0.3s ease;
-}
-
-.project-link:hover {
-  border-bottom: 1px solid #00d4ff;
-}
-
-.back-link {
-  font-weight: normal;
-}
-
-@media (max-width: 768px) {
-  .project-detail-image {
-    width: 100%;
-  }
-  .project-description-wrapper {
-    padding: 20px;
-  }
 }
 
 /* ========================================
-   Project Images Section
+   Responsive Layout for Mobile
 ======================================== */
-.project-images-section {
-  padding: 60px 20px;
-  background: #1a1a1a;
-  color: #fff;
-}
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
 
-.project-images-section .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
+  .portfolio-column {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+  }
 
-.project-images-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* single column on mobile */
+    gap: 20px;
+  }
 
-.project-images-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.project-screenshot {
-  flex: 0 0 auto;
-  width: 300px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.project-screenshot:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-}
-
-@media (max-width: 768px) {
-  .project-screenshot {
-    flex: 0 0 80%;
+  .project-card img {
+    width: 100%;
     height: auto;
   }
 }
 
-
-
 /* ========================================
-   Contact Section
+   Right About Panel
 ======================================== */
-.contact-section {
-  color: #fff;
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
+
+.about-panel {
+  padding: 140px 140px;
+  border-left: 1px solid rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
-.contact-wrapper {
-  max-width: 600px;
-  width: 100%;
+.about-panel h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 82px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 50px;
 }
 
-.contact-intro {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #ccc;
-  margin-bottom: 40px;
-  text-align: justify;
+.about-panel p {
+  max-width: 70ch;   /* wider text block */
+  line-height: 1.85;
+  font-size: 1.05rem;
+  margin-bottom: 80px;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.about-links a {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: #000;
+  text-decoration: underline;
 }
-
-.contact-form label {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-
-.contact-form input,
-.contact-form textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  padding: 12px 0;
-  font-family: "Raleway", sans-serif;
-  font-size: 1rem;
-  color: #fff;
-  transition: border-color 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-bottom: 1px solid #fff;
-}
-
-.contact-form button {
-  margin-top: 20px;
-  padding: 12px 0;
-  background: transparent;
-  border: 1px solid #fff;
-  font-family: "Raleway", sans-serif;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-
-
-
-
-.contact-form button:hover {
-  background: #fff;
-  color: #111;
-}
-
-@media (max-width: 600px) {
-  .contact-wrapper {
-    padding: 0 10px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
 
 
 /* ========================================
    Case Study Layout
 ======================================== */
 
-/* ========================================
-   Case Study Layout – Enhanced
-======================================== */
-
 .case-study {
-  max-width: 1200px; /* slightly wider for bigger images */
+  max-width: 1200px;
   margin: 120px auto;
-  padding: 0 40px;   /* more padding so text isn't too close to edge */
-  
+  padding: 0 40px;
   display: grid;
-  grid-template-columns: 280px 1fr; /* narrower left panel, bigger images */
-  gap: 80px; /* more space between text and images */
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
 }
 
-/* Left description panel */
 .project-description {
   position: sticky;
   top: 120px;
-  text-align: left;
 }
 
 .project-description p {
-  max-width: none;        /* allow full panel width */
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   text-align: left;
 }
 
-/* Masonry image layout */
+
+/* ========================================
+   Masonry Images
+======================================== */
+
 .masonry {
   column-count: 2;
-  column-gap: 2rem; /* slightly wider gap for larger images */
+  column-gap: 2rem;
 }
 
 .masonry img {
   width: 100%;
   margin-bottom: 1.5rem;
   break-inside: avoid;
-  border-radius: 0;       /* rectangular edges */
   display: block;
-  transition: transform 0.35s ease;
+  border-radius: 0;
+  transition: transform .3s ease;
 }
 
 .masonry img:hover {
-  transform: scale(1.03); /* slightly stronger hover zoom for bigger images */
+  transform: scale(1.03);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .case-study {
-    grid-template-columns: 1fr;
-  }
-
-  .project-description {
-    position: static;
-    margin-bottom: 40px;
-  }
-
-  .masonry {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 600px) {
-  .masonry {
-    column-count: 1;
-  }
-}
-
-/* ========================================
-   Rectangular Images for Project Cards & Case Studies
-======================================== */
-
-/* Target project cards, project detail images, screenshots, and masonry images */
-.project-card img,
-.project-detail-image,
-.project-screenshot,
-.masonry img {
-  border-radius: 0; /* remove rounded corners */
-  transition: transform 0.3s ease; /* smooth hover transform */
-}
-
-/* Keep hover zoom effect */
-.project-card:hover img,
-.project-screenshot:hover,
-.masonry img:hover,
-.project-detail-image:hover {
-  transform: scale(1.02); /* slightly zoom on hover */
-}
