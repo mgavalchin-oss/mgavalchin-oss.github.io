@@ -41,7 +41,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 60px; /* slightly taller padding */
+  padding: 24px 60px;
   background: rgba(255,255,255,0.95);
   position: sticky;
   top: 0;
@@ -51,7 +51,7 @@ a:hover {
 }
 
 .nav-logo {
-  font-size: 1.7rem; /* slightly bigger */
+  font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #000;
@@ -61,7 +61,7 @@ a:hover {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 48px; /* slightly more space between links */
+  gap: 48px;
   font-family: "Forum", serif;
 }
 
@@ -69,7 +69,7 @@ a:hover {
   color: #000;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 1rem; /* slightly bigger text */
+  font-size: 1rem;
   letter-spacing: 0.1em;
   position: relative;
   transition: color 0.3s ease;
@@ -101,7 +101,7 @@ a:hover {
   position: fixed;
   left: 0;
   top: 80px;
-  width: 40vw;  /* slightly smaller left column */
+  width: 38vw;
   height: calc(100vh - 80px);
   padding: 60px 40px;
   overflow-y: auto;
@@ -140,7 +140,7 @@ a:hover {
 
 .project-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* square images */
   object-fit: cover;
   border-radius: 8px;
   display: block;
@@ -164,12 +164,26 @@ a:hover {
   position: fixed;
   top: 80px;
   right: 0;
-  width: 60vw; /* slightly bigger right column */
+  width: 62vw;
   height: calc(100vh - 80px);
   padding: 140px 120px;
   border-left: 1px solid rgba(0,0,0,0.1);
   background: #fff;
   box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.about-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.about-panel::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.about-panel::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .about-panel h1 {
@@ -178,43 +192,80 @@ a:hover {
   font-style: italic;
   font-weight: 400;
   margin-bottom: 50px;
+  margin-top: 0;
 }
 
 .about-panel p {
   max-width: 70ch;
   line-height: 1.85;
-  font-size: 1.05rem;
+  font-size: 1.2rem; /* larger text */
   margin-bottom: 80px;
 }
 
 .about-links a {
   display: block;
   margin-bottom: 16px;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #000;
   text-decoration: underline;
 }
 
 /* ========================================
-   Case Study Layout
+   Case Study Page
 ======================================== */
-.case-study {
+.case-study-page {
   max-width: 1200px;
   margin: 120px auto;
   padding: 0 40px;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 80px;
 }
 
-.project-description {
+.case-study-description {
   position: sticky;
   top: 120px;
 }
 
-.project-description p {
-  margin: 0;
-  text-align: left;
+.case-study-description h1 {
+  font-family: "Forum", serif;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.case-study-description p {
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+  max-width: 35ch;
+}
+
+.case-study-image img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.case-study-grid {
+  margin-top: 100px;
+  column-count: 3;
+  column-gap: 24px;
+}
+
+.case-study-grid img {
+  width: 100%;
+  margin-bottom: 24px;
+  break-inside: avoid;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.case-study-grid img:hover {
+  transform: scale(1.03);
 }
 
 /* ========================================
@@ -230,7 +281,7 @@ a:hover {
   margin-bottom: 1.5rem;
   break-inside: avoid;
   display: block;
-  border-radius: 0;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
@@ -276,6 +327,7 @@ a:hover {
   line-height: 1.9;
   margin-bottom: 24px;
   max-width: 65ch;
+  font-size: 1.15rem;
 }
 
 /* Skills */
@@ -349,7 +401,7 @@ a:hover {
   }
 
   .site-nav {
-    padding: 16px 30px; /* reduce padding on small screens */
+    padding: 16px 30px;
   }
 
   .nav-logo {
@@ -363,5 +415,28 @@ a:hover {
   .nav-links {
     gap: 24px;
   }
-}
 
+  .case-study-page {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .case-study-description {
+    position: relative;
+    top: auto;
+  }
+
+  .case-study-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .case-study-grid {
+    column-count: 1;
+    column-gap: 16px;
+  }
+
+  .case-study-grid img {
+    margin-bottom: 16px;
+  }
+}
