@@ -34,6 +34,14 @@ a:hover {
   color: #000;
 }
 
+.about-header-img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
 /* ========================================
    Navigation
 ======================================== */
@@ -209,6 +217,8 @@ a:hover {
   color: #000;
   text-decoration: underline;
 }
+
+
 
 /* ========================================
    Case Study Page
@@ -438,5 +448,11 @@ a:hover {
 
   .case-study-grid img {
     margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-header-img {
+    margin: 0 auto 15px;
   }
 }
