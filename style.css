@@ -153,10 +153,11 @@ a:hover {
 
 .project-card img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* square images */
+  aspect-ratio: 1 / 1; /* keeps images square */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;     /* remove rounded corners */
   display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .project-card:hover img {
