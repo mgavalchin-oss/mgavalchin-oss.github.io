@@ -9,12 +9,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
+</head>
+<body>
 
- <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
   
   <!-- Navigation -->
+
   <nav class="site-nav">
-    <a href="index.html" class="nav-logo">MAX GAVALCHIN</a>
+    <a href="index.html" class="nav-logo">MG</a>
     <ul class="nav-links">
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
@@ -27,51 +30,26 @@
     </button>
   </nav>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('open');
-      });
-    });
-  </script>
-
-
-<div class="main-layout">
-
-
-
-
-
-
-
-
-<div class="case-study-page">
-  <div class="case-study-top">
-
-    <!-- LEFT COLUMN -->
+  <main class="case-study-page">
     <div class="case-study-description">
       <h1>ESSENCE</h1>
       <p>
         This visual system represents the Essence Music Festival in New Orleans. It consists of a poster, motion graphics, and instagram posts to advertise this event. The visual forms draw inspiration from New Orleans’ city lights.
       </p>
       <p>
-       
+        This project took place in Fall 2025.
       </p>
     </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="case-study-hero">
-      <img src="https://via.placeholder.com/900x1100" alt="Project Image">
+  
+    <div class="case-study-image">
+      <img src="https://i.ibb.co/fG9nL9vN/comp-ESSENCELAPTOP-copy-2.png" alt="Case Study Image">
     </div>
+  </main>
 
-  </div>
+<!-- Freeform grid under the top section -->
+<div class="case-study-grid">
+  <img src="https://i.ibb.co/2Yt6ZDZt/comp-ESSENCE-LOGO-copy.gif" alt="Grid Image 1">
+  <img src="https://i.ibb.co/60rz9vRP/Screenshot-2025-12-17-at-4-50-05-PM.png" alt="Grid Image 2">
+  <img src="https://i.ibb.co/4nVqJXV9/comp-Essence-final-poster.png" alt="Grid Image 3">
 </div>
+</main>
