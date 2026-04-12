@@ -207,6 +207,34 @@ a:hover {
   background: transparent;
 }
 
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px; /* space between text and headshot */
+  flex-wrap: wrap; /* ensures it wraps on small screens */
+}
+
+.headshot-img {
+  width: 120px;      /* small square */
+  height: 120px;     /* equal height */
+  object-fit: cover; /* crop nicely */
+  border-radius: 8px; /* slightly rounded corners, optional */
+  flex-shrink: 0;    /* prevents shrinking */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 600px) {
+  .about-content {
+    flex-direction: column; /* stack on mobile */
+  }
+
+  .headshot-img {
+    width: 100px;
+    height: 100px;
+    margin-top: 16px;
+  }
+}
+
 /* ========================================
    Typography
 ======================================== */
