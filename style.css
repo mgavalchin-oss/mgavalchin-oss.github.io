@@ -54,6 +54,7 @@ a:hover {
 /* ========================================
    Navigation
 ======================================== */
+
 .site-nav {
   display: flex;
   justify-content: space-between;
@@ -103,12 +104,23 @@ a:hover {
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.nav-link:hover {
+  color: #0077ff;
 }
 
 .nav-link.active {
   color: #0077ff;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: #0077ff;
+}
+
+@media (max-width: 768px) {
+  .site-nav {
+    padding: 20px 24px;
+  }
 }
 
 /* ========================================
