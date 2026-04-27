@@ -1,13 +1,21 @@
 /* ========================================
    Base Styles
 ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Forum&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
+  font-family: 'Forum', serif;
   margin: 0;
-  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #ffffff;
   color: #000000;
   line-height: 1.7;
 }
+
 
 a {
   color: #000;
@@ -19,42 +27,9 @@ a:hover {
   opacity: 0.6;
 }
 
-
-/* ========================================
-   Header
-======================================== */
-.header-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 40px;
-}
-
-.header-container h1 {
-  font-size: 3rem;
-  margin: 0;
-  color: #000;
-  font-family: forum;
-}
-
-.about-panel-inner {
-  max-width: none;
-}
-
-.about-header-img {
-  width: calc(100% + 200px);   /* spans beyond container */
-  max-width: none;             /* disables container constraints */
-  margin-left: -100px;         /* centers the overflow */
-  height: auto;                /* maintains aspect ratio */
-  margin-bottom: 15px;         /* tighter gap below */
-  display: block;
-  object-fit: cover;           /* ensures proper scaling if image is cropped */
-}
-
-
 /* ========================================
    Navigation
 ======================================== */
-
 .site-nav {
   display: flex;
   justify-content: space-between;
@@ -117,61 +92,74 @@ a:hover {
   background: #0077ff;
 }
 
-@media (max-width: 768px) {
-  .site-nav {
-    padding: 20px 24px;
-  }
-}
-
 /* ========================================
-   Left Portfolio Column
+   Layout (UPDATED: Portfolio Bigger)
 ======================================== */
-.portfolio-column {
+
+/* LEFT = ABOUT (smaller) */
+.about-panel {
   position: fixed;
   left: 0;
   top: 80px;
-  width: 38vw;
+  width: 42vw;
+  height: calc(100vh - 80px);
+  padding: 140px 120px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 900;
+}
+
+/* RIGHT = PORTFOLIO (bigger) */
+.portfolio-column {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 58vw;
   height: calc(100vh - 80px);
   padding: 60px 40px;
   overflow-y: auto;
   box-sizing: border-box;
 }
 
-.portfolio-column::-webkit-scrollbar {
+/* Scrollbars */
+.portfolio-column::-webkit-scrollbar,
+.about-panel::-webkit-scrollbar {
   width: 8px;
 }
 
-.portfolio-column::-webkit-scrollbar-thumb {
+.portfolio-column::-webkit-scrollbar-thumb,
+.about-panel::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 4px;
 }
 
-.portfolio-column::-webkit-scrollbar-track {
+.portfolio-column::-webkit-scrollbar-track,
+.about-panel::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Grid layout inside portfolio */
+/* ========================================
+   Portfolio Grid
+======================================== */
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
 }
 
-/* Project cards */
 .project-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  font-size: 13px;
-  color: #fff;
 }
 
 .project-card img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* keeps images square */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 0;     /* remove rounded corners */
   display: block;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -181,78 +169,41 @@ a:hover {
   opacity: 0.85;
 }
 
-.project-card span {
-  margin-top: 8px;
-  text-align: center;
-  font-weight: 600;
-}
-
 /* ========================================
-   About Panel
+   About Panel Content
 ======================================== */
-.about-panel {
-  position: fixed;
-  top: 80px;
-  right: 0;
-  width: 62vw;
-  height: calc(100vh - 80px);
-  padding: 140px 120px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  background: #fff;
-  box-sizing: border-box;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  z-index: 900;
+.about-panel-inner {
+  max-width: none;
 }
 
-/* Scrollbar styling */
-.about-panel::-webkit-scrollbar {
-  width: 8px;
-}
-
-.about-panel::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
-}
-
-.about-panel::-webkit-scrollbar-track {
-  background: transparent;
+.about-header-img {
+  width: calc(100% + 200px);
+  margin-left: -100px;
+  height: auto;
+  margin-bottom: 15px;
+  display: block;
+  object-fit: cover;
 }
 
 .about-content {
   display: flex;
   align-items: flex-start;
-  gap: 24px; /* space between text and headshot */
-  flex-wrap: wrap; /* ensures it wraps on small screens */
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .headshot-img {
-  width: 120px;      /* small square */
-  height: 120px;     /* equal height */
-  object-fit: cover; /* crop nicely */
-  border-radius: 8px; /* slightly rounded corners, optional */
-  flex-shrink: 0;    /* prevents shrinking */
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
-/* Responsive adjustment for small screens */
-@media (max-width: 600px) {
-  .about-content {
-    flex-direction: column; /* stack on mobile */
-  }
-
-  .headshot-img {
-    width: 100px;
-    height: 100px;
-    margin-top: 16px;
-  }
-}
-
-/* ========================================
-   Typography
-======================================== */
+/* Typography */
 .about-panel h1 {
   font-family: "Forum", serif;
-  font-size: clamp(48px, 8vw, 82px); /* responsive scaling */
+  font-size: clamp(48px, 8vw, 82px);
   font-style: italic;
   font-weight: 400;
   margin: 0 0 50px 0;
@@ -261,22 +212,17 @@ a:hover {
 
 .about-panel p {
   max-width: 65ch;
-  line-height: 1.7;
   font-size: clamp(0.95rem, 1vw, 1.05rem);
   margin-bottom: 60px;
   color: #333;
-  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.5px;
 }
 
-/* Links inside about panel */
+/* Links */
 .about-links a {
   display: block;
   margin-bottom: 16px;
   font-size: clamp(0.95rem, 1vw, 1.1rem);
-  color: #000;
   text-decoration: underline;
-  transition: color 0.25s ease;
 }
 
 .about-links a:hover {
@@ -284,64 +230,7 @@ a:hover {
 }
 
 /* ========================================
-   Responsive Adjustments
-======================================== */
-@media (max-width: 1200px) {
-  .about-panel {
-    width: 75vw;
-    padding: 120px 60px;
-  }
-}
-
-@media (max-width: 900px) {
-  .about-panel {
-    width: 90vw;
-    padding: 100px 40px;
-  }
-
-  .about-panel h1 {
-    font-size: clamp(36px, 8vw, 64px);
-  }
-
-  .about-panel p {
-    font-size: 1.05rem;
-    margin-bottom: 60px;
-  }
-}
-
-@media (max-width: 600px) {
-  .about-panel {
-    position: fixed;
-    top: 60px;
-    width: 100vw;
-    height: calc(100vh - 60px);
-    padding: 80px 24px;
-    border-left: none;
-  }
-
-  .about-panel h1 {
-    font-size: clamp(28px, 8vw, 48px);
-    margin-bottom: 40px;
-  }
-
-  .about-panel p {
-    font-size: 1rem;
-    margin-bottom: 40px;
-  }
-
-  .about-links a {
-    font-size: 1rem;
-  }
-}
-
-
-
-
-
-
-
-/* ========================================
-   Case Study Page
+   Case Study Page (UNCHANGED)
 ======================================== */
 .case-study-page {
   max-width: 1200px;
@@ -372,13 +261,6 @@ a:hover {
   max-width: 35ch;
 }
 
-.case-study-image img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
 .case-study-grid {
   margin-top: 100px;
   column-count: 3;
@@ -389,7 +271,6 @@ a:hover {
   width: 100%;
   margin-bottom: 24px;
   break-inside: avoid;
-  border-radius: 8px;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -399,147 +280,29 @@ a:hover {
 }
 
 /* ========================================
-   Masonry Images
-======================================== */
-.masonry {
-  column-count: 2;
-  column-gap: 2rem;
-}
-
-.masonry img {
-  width: 100%;
-  margin-bottom: 1.5rem;
-  break-inside: avoid;
-  display: block;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.masonry img:hover {
-  transform: scale(1.03);
-}
-
-/* ========================================
-   About Page
-======================================== */
-.about-page {
-  margin-top: 120px;
-  padding: 0 60px;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-image img {
-  width: 100%;
-  display: block;
-  border-radius: 0;
-}
-
-.about-content h1 {
-  font-family: "Forum", serif;
-  font-size: 64px;
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-
-.about-intro {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.about-content p {
-  line-height: 1.9;
-  margin-bottom: 24px;
-  max-width: 65ch;
-  font-size: 1.15rem;
-}
-
-/* Skills */
-.about-skills {
-  margin-top: 60px;
-}
-
-.about-skills h2 {
-  font-family: "Forum", serif;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.about-skills ul {
-  list-style: none;
-  padding: 0;
-  columns: 2;
-}
-
-.about-skills li {
-  margin-bottom: 10px;
-}
-
-/* Resume Button */
-.resume-button {
-  display: inline-block;
-  margin-top: 60px;
-  padding: 12px 22px;
-  border: 1px solid #000;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  transition: all 0.3s ease;
-}
-
-.resume-button:hover {
-  background: #000;
-  color: #fff;
-}
-
-/* ========================================
-   Responsive Layout
+   Responsive
 ======================================== */
 @media (max-width: 900px) {
-  .main-layout {
-    flex-direction: column;
+  .portfolio-column,
+  .about-panel {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    overflow: visible;
   }
 
-  .portfolio-column {
-    width: 100%;
-    padding: 20px;
-    height: auto;
-    position: relative;
+  .about-panel {
+    border-right: none;
+    padding: 60px 30px;
   }
 
   .portfolio-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .project-card img {
-    height: auto;
-  }
-
-  .about-panel {
-    width: 100%;
-    padding: 60px 30px;
-    height: auto;
-    position: relative;
-    border-left: none;
   }
 
   .site-nav {
     padding: 16px 30px;
-  }
-
-  .nav-logo {
-    font-size: 1.5rem;
-  }
-
-  .nav-link {
-    font-size: 0.95rem;
   }
 
   .nav-links {
@@ -556,28 +319,23 @@ a:hover {
     top: auto;
   }
 
-  .case-study-image img {
-    width: 100%;
-    height: auto;
-  }
-
   .case-study-grid {
     column-count: 1;
-    column-gap: 16px;
-  }
-
-  .case-study-grid img {
-    margin-bottom: 16px;
   }
 }
 
 @media (max-width: 600px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .headshot-img {
+    width: 100px;
+    height: 100px;
+    margin-top: 16px;
+  }
+
   .about-header-img {
     margin: 0 auto 15px;
   }
 }
-
-
-
-
-
