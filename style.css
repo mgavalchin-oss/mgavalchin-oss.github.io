@@ -1,4 +1,4 @@
-/* ========================================
+ /* ========================================
    Base Styles
 ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Forum&display=swap');
@@ -7,7 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   font-family: 'Forum', serif;
   margin: 0;
@@ -15,7 +14,6 @@ body {
   color: #000000;
   line-height: 1.7;
 }
-
 
 a {
   color: #000;
@@ -80,38 +78,53 @@ a:hover {
 }
 
 .nav-link:hover {
-  color: #0077ff;
+  color: #2f6bff;
 }
 
 .nav-link.active {
-  color: #0077ff;
+  color: #2f6bff;
 }
 
 .nav-link.active::after {
   width: 100%;
-  background: #0077ff;
+  background: #2f6bff;
 }
 
 /* ========================================
-   Layout (UPDATED: Portfolio Bigger)
+   Layout
 ======================================== */
-
-/* LEFT = ABOUT (smaller) */
 .about-panel {
   position: fixed;
   left: 0;
   top: 80px;
   width: 42vw;
   height: calc(100vh - 80px);
-  padding: 140px 120px;
+  padding: 60px 120px 140px 120px;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  background: #fff;
   box-sizing: border-box;
   overflow-y: auto;
   z-index: 900;
+
+  background-image: url('https://i.ibb.co/V0NrM8sL/comp-NEW-VERSION-copy.png');
+  background-repeat: no-repeat;
+  background-size: 110% auto;
+  background-position: top left;
+  background-origin: content-box;
 }
 
-/* RIGHT = PORTFOLIO (bigger) */
+.about-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 0;
+}
+
+.about-panel-inner {
+  position: relative;
+  z-index: 1;
+}
+
 .portfolio-column {
   position: fixed;
   right: 0;
@@ -121,23 +134,6 @@ a:hover {
   padding: 60px 40px;
   overflow-y: auto;
   box-sizing: border-box;
-}
-
-/* Scrollbars */
-.portfolio-column::-webkit-scrollbar,
-.about-panel::-webkit-scrollbar {
-  width: 8px;
-}
-
-.portfolio-column::-webkit-scrollbar-thumb,
-.about-panel::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
-}
-
-.portfolio-column::-webkit-scrollbar-track,
-.about-panel::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 /* ========================================
@@ -153,38 +149,35 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .project-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.03);
-  opacity: 0.85;
+  transform: scale(1.02);
 }
 
 /* ========================================
-   About Panel Content
+   ABOUT HEADER (UPDATED SPACING)
 ======================================== */
-.about-panel-inner {
-  max-width: none;
+.about-name {
+  font-family: "Forum", serif;
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: 0.32em; /* increased spacing */
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+  white-space: nowrap;
 }
 
-.about-header-img {
-  width: calc(100% + 200px);
-  margin-left: -100px;
-  height: auto;
-  margin-bottom: 15px;
-  display: block;
-  object-fit: cover;
-}
-
+/* ========================================
+   About Content
+======================================== */
 .about-content {
   display: flex;
   align-items: flex-start;
@@ -193,21 +186,12 @@ a:hover {
 }
 
 .headshot-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
   flex-shrink: 0;
-}
-
-/* Typography */
-.about-panel h1 {
-  font-family: "Forum", serif;
-  font-size: clamp(48px, 8vw, 82px);
-  font-style: italic;
-  font-weight: 400;
-  margin: 0 0 50px 0;
-  line-height: 1.1;
 }
 
 .about-panel p {
@@ -217,20 +201,21 @@ a:hover {
   color: #333;
 }
 
-/* Links */
 .about-links a {
   display: block;
   margin-bottom: 16px;
   font-size: clamp(0.95rem, 1vw, 1.1rem);
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
 }
 
 .about-links a:hover {
-  color: #0077ff;
+  color: #2f6bff;
 }
 
 /* ========================================
-   Case Study Page (UNCHANGED)
+   Case Study Page
 ======================================== */
 .case-study-page {
   max-width: 1200px;
@@ -286,27 +271,12 @@ a:hover {
   .portfolio-column,
   .about-panel {
     position: relative;
-    top: auto;
     width: 100%;
     height: auto;
-    overflow: visible;
-  }
-
-  .about-panel {
-    border-right: none;
-    padding: 60px 30px;
   }
 
   .portfolio-grid {
     grid-template-columns: 1fr;
-  }
-
-  .site-nav {
-    padding: 16px 30px;
-  }
-
-  .nav-links {
-    gap: 24px;
   }
 
   .case-study-page {
@@ -314,13 +284,13 @@ a:hover {
     gap: 40px;
   }
 
-  .case-study-description {
-    position: relative;
-    top: auto;
-  }
-
   .case-study-grid {
     column-count: 1;
+  }
+
+  .about-name {
+    font-size: 34px;
+    letter-spacing: 0.22em;
   }
 }
 
@@ -332,10 +302,6 @@ a:hover {
   .headshot-img {
     width: 100px;
     height: 100px;
-    margin-top: 16px;
-  }
-
-  .about-header-img {
-    margin: 0 auto 15px;
+    object-fit: cover;
   }
 }
