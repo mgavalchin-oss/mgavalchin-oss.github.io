@@ -1,24 +1,31 @@
- /* ========================================
-   Base Styles
-======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Forum&display=swap');
+
+/* ========================================
+   BASE
+======================================== */
+:root {
+  --nav-height: 80px;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Forum', serif;
   margin: 0;
-  background: #ffffff;
-  color: #000000;
+  font-family: "Forum", serif;
+  background: #fff;
+  color: #000;
   line-height: 1.7;
 }
 
+/* ========================================
+   LINKS
+======================================== */
 a {
   color: #000;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 a:hover {
@@ -26,282 +33,159 @@ a:hover {
 }
 
 /* ========================================
-   Navigation
+   NAV (MG LEFT / LINKS FAR RIGHT)
 ======================================== */
 .site-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 24px 60px;
-  background: rgba(255,255,255,0.95);
+  height: var(--nav-height);
+  padding: 0 60px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* LEFT: MG */
 .nav-logo {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #000;
-  font-family: "Forum", serif;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 48px;
-  font-family: "Forum", serif;
-}
-
-.nav-link {
-  color: #000;
-  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+/* RIGHT GROUP PUSHED FULLY RIGHT */
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  margin-left: auto; /* KEY: forces full right alignment */
+  align-items: center;
+}
+
+/* LINKS */
+.nav-link {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #000;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #2f6bff;
-}
-
-.nav-link.active {
-  color: #2f6bff;
-}
-
-.nav-link.active::after {
-  width: 100%;
-  background: #2f6bff;
 }
 
 /* ========================================
-   Layout
+   TOP BANNER
+======================================== */
+.top-banner {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.banner-logo {
+  height: clamp(140px, 16vw, 200px);
+  width: auto;
+}
+
+/* ========================================
+   MAIN LAYOUT (ABOUT LEFT / PORTFOLIO RIGHT)
+======================================== */
+.main-layout {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  grid-template-areas: "about portfolio";
+  align-items: start;
+}
+
+/* ========================================
+   LEFT: ABOUT
 ======================================== */
 .about-panel {
-  position: fixed;
-  left: 0;
-  top: 80px;
-  width: 42vw;
-  height: calc(100vh - 80px);
-  padding: 60px 120px 140px 120px;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  grid-area: about;
+  padding: 60px clamp(20px, 4vw, 60px);
   box-sizing: border-box;
-  overflow-y: auto;
-  z-index: 900;
-
-  background-image: url('https://i.ibb.co/V0NrM8sL/comp-NEW-VERSION-copy.png');
-  background-repeat: no-repeat;
-  background-size: 110% auto;
-  background-position: top left;
-  background-origin: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.about-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.75);
-  z-index: 0;
+.about-content,
+.about-links {
+  max-width: 320px;
 }
 
-.about-panel-inner {
-  position: relative;
-  z-index: 1;
+.about-name {
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 18px 0;
+  line-height: 1.1;
+  font-weight: 400;
 }
 
-.portfolio-column {
-  position: fixed;
-  right: 0;
-  top: 80px;
-  width: 58vw;
-  height: calc(100vh - 80px);
-  padding: 60px 40px;
-  overflow-y: auto;
-  box-sizing: border-box;
+.about-panel p {
+  max-width: 55ch;
+  margin: 0 0 40px 0;
+  color: #333;
+}
+
+.about-links a {
+  display: block;
+  margin-bottom: 14px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
 }
 
 /* ========================================
-   Portfolio Grid
+   RIGHT: PORTFOLIO
 ======================================== */
+.portfolio-column {
+  grid-area: portfolio;
+  padding: 60px 50px;
+  box-sizing: border-box;
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 26px;
 }
 
 .project-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.35s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 /* ========================================
-   ABOUT HEADER (UPDATED SPACING)
-======================================== */
-.about-name {
-  font-family: "Forum", serif;
-  font-size: 44px;
-  font-weight: 400;
-  letter-spacing: 0.32em; /* increased spacing */
-  text-transform: uppercase;
-  margin: 0 0 24px 0;
-  white-space: nowrap;
-}
-
-/* ========================================
-   About Content
-======================================== */
-.about-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.headshot-img {
-  width: 400px;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.about-panel p {
-  max-width: 65ch;
-  font-size: clamp(0.95rem, 1vw, 1.05rem);
-  margin-bottom: 60px;
-  color: #333;
-}
-
-.about-links a {
-  display: block;
-  margin-bottom: 16px;
-  font-size: clamp(0.95rem, 1vw, 1.1rem);
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
-}
-
-.about-links a:hover {
-  color: #2f6bff;
-}
-
-/* ========================================
-   Case Study Page
-======================================== */
-.case-study-page {
-  max-width: 1200px;
-  margin: 120px auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 80px;
-}
-
-.case-study-description {
-  position: sticky;
-  top: 120px;
-}
-
-.case-study-description h1 {
-  font-family: "Forum", serif;
-  font-size: 48px;
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-
-.case-study-description p {
-  line-height: 1.8;
-  margin-bottom: 24px;
-  font-size: 1.05rem;
-  max-width: 35ch;
-}
-
-.case-study-grid {
-  margin-top: 100px;
-  column-count: 3;
-  column-gap: 24px;
-}
-
-.case-study-grid img {
-  width: 100%;
-  margin-bottom: 24px;
-  break-inside: avoid;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.case-study-grid img:hover {
-  transform: scale(1.03);
-}
-
-/* ========================================
-   Responsive
+   RESPONSIVE
 ======================================== */
 @media (max-width: 900px) {
-  .portfolio-column,
-  .about-panel {
-    position: relative;
-    width: 100%;
-    height: auto;
+  .main-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "about"
+      "portfolio";
   }
 
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
 
-  .case-study-page {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .case-study-grid {
-    column-count: 1;
-  }
-
-  .about-name {
-    font-size: 34px;
-    letter-spacing: 0.22em;
-  }
-}
-
-@media (max-width: 600px) {
-  .about-content {
-    flex-direction: column;
-  }
-
-  .headshot-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+  .about-content,
+  .about-links {
+    max-width: 100%;
   }
 }

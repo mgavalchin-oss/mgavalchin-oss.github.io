@@ -3,176 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAX GAVALCHIN  — Portfolio</title>
+  <title>Max Gavalchin's Space</title>
+
   <link rel="stylesheet" href="style.css" />
-  <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Encode+Sans+SC:wght@100..900&family=Forum&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Lexend+Exa:wght@100..900&family=Lexend+Tera:wght@100..900&family=Poiret+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
-
-
-
-
-</style>
-
-</style>
-    
-    </style>
+  <!-- Your fonts (kept) -->
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- Navigation Bar -->
-  
-  <!-- Navigation -->
-  <nav class="site-nav">
-    <a href="index.html" class="nav-logo">MG</a>
-    <ul class="nav-links">
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li> <!-- active on Contact page -->
-    </ul>
-    <button class="nav-toggle" aria-label="Toggle Navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">MG</a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle Navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('open');
-      });
-    });
-  </script>
-
-
-<div class="main-layout">
-
-  
-
-
-<!-- LEFT PORTFOLIO -->
-<div class="portfolio-column">
-  <div class="portfolio-grid">
-
-    <a href="essence.html" class="project-card">
-      <img src="https://i.ibb.co/2Yt6ZDZt/comp-ESSENCE-LOGO-copy.gif" alt="Essence Project">
-    </a>
-
-    <a href="risdiculous.html" class="project-card">
-      <img src="https://i.ibb.co/TMxq5N1R/mock-RISDICULOUS-Thumbnail.png" alt="Risdiculous Project">
-    </a>
-
-    <a href="twodt.html" class="project-card">
-      <img src="https://i.ibb.co/7tDDrs5S/comp-2dt-closeup-copy.jpg" alt="2DT Closeup Project">
-    </a>
-
-    <a href="publication.html" class="project-card">
-      <img src="https://i.ibb.co/1YyDXBcN/Compcover-copy.jpg" alt="True Blue Gleam Project">
-    </a>
-
-
-    <a href="thegolden.html" class="project-card">
-      <img src="https://i.ibb.co/HL8J6q4T/comp-Comp-1-copy.gif" alt="Comp 1 Project">
-    </a>
-
-    <a href="oasis.html" class="project-card">
-      <img src="https://i.ibb.co/zTW7jNrL/comp-OASIS.png" alt="Oasis Project">
-    </a>
-
-    
-    
-
-    <a href="elements.html" class="project-card">
-      <img src="https://i.ibb.co/3wY82Rj/comp-Elements-New-Mockup-copy.png" alt="Elements Project">
-    </a>
-
-    <a href="jellyfish-journal.html" class="project-card">
-      <img src="https://i.ibb.co/JSDfDJz/comp-jellyfish-journal-pages-copy.png" alt="Jellyfish Journal Project">
-    </a>
-
-    <a href="true-blue-gleam.html" class="project-card">
-      <img src="https://i.ibb.co/1fRxD9FG/comp-True-Blue-Gleam-thumbnail-copy.png" alt="True Blue Gleam Project">
-    </a>
-
-    <a href="rnb.html" class="project-card">
-      <img src="https://i.ibb.co/7JLtT9z5/book-shroter-gif-1-dragged.jpg" alt="True Blue Gleam Project">
-    </a>
-
-    
-
-  </div>
+<!-- ✅ NEW TOP BANNER -->
+<div class="top-banner">
+  <!-- Replace with your actual logo -->
+  <img src=https://i.ibb.co/V0NrM8sL/comp-NEW-VERSION-copy.png alt="Logo" class="banner-logo">
 </div>
 
+<!-- MAIN -->
+<div class="main-layout">
 
+  <!-- LEFT -->
+  <div class="portfolio-column">
+    <div class="portfolio-grid">
 
+      <a href="essence.html" class="project-card">
+        <img src="https://i.ibb.co/2Yt6ZDZt/comp-ESSENCE-LOGO-copy.gif">
+      </a>
 
-        
+      <a href="risdiculous.html" class="project-card">
+        <img src="https://i.ibb.co/TMxq5N1R/mock-RISDICULOUS-Thumbnail.png">
+      </a>
 
-  
+      <a href="twodt.html" class="project-card">
+        <img src="https://i.ibb.co/7tDDrs5S/comp-2dt-closeup-copy.jpg">
+      </a>
 
-  
+      <a href="publication.html" class="project-card">
+        <img src="https://i.ibb.co/1YyDXBcN/Compcover-copy.jpg">
+      </a>
 
+      <a href="thegolden.html" class="project-card">
+        <img src="https://i.ibb.co/HL8J6q4T/comp-Comp-1-copy.gif">
+      </a>
 
-  <!-- RIGHT ABOUT PANEL -->
-  <div class="about-panel">
+      <a href="oasis.html" class="project-card">
+        <img src="https://i.ibb.co/zTW7jNrL/comp-OASIS.png">
+      </a>
 
+      <a href="elements.html" class="project-card">
+        <img src="https://i.ibb.co/3wY82Rj/comp-Elements-New-Mockup-copy.png">
+      </a>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+      <a href="jellyfish-journal.html" class="project-card">
+        <img src="https://i.ibb.co/JSDfDJz/comp-jellyfish-journal-pages-copy.png">
+      </a>
 
-x
+      <a href="true-blue-gleam.html" class="project-card">
+        <img src="https://i.ibb.co/1fRxD9FG/comp-True-Blue-Gleam-thumbnail-copy.png">
+      </a>
 
-<!-- RIGHT ABOUT PANEL --> 
+      <a href="rnb.html" class="project-card">
+        <img src="https://i.ibb.co/7JLtT9z5/book-shroter-gif-1-dragged.jpg">
+      </a>
 
-<section class="about-panel" aria-label="About Max Gavalchin">
-
-  <div class="about-panel-inner">
- 
-   <h2></h2>
-
-    <div class="about-content">
-      <h1 class="about-name">MAX GAVALCHIN</h1>
-    
-      <p>
-        Max Gavalchin is a graphic design major at the Rhode Island School of Design, originally from Manhattan, New York.
-      </p>
     </div>
-
-    <div class="about-links">
-      <a href="https://www.instagram.com/kyungjun.archive" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com/in/max-gavalchin-350132305/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:mgavalchin@gmail.com">Email</a>
-      <img src="" 
-           alt="Headshot of Max Gavalchin" 
-           class="headshot-img">
-      
-           
-    </div>
-
   </div>
 
-</section>
- 
-  
+  <!-- RIGHT -->
+  <section class="about-panel">
+    <div class="about-panel-inner">
 
+      <div class="about-content">
+        <h1 class="about-name">Max Gavalchin</h1>
 
+        <p>
+          Max Gavalchin is a graphic design major at the Rhode Island School of Design, originally from Manhattan, New York.
+        </p>
+      </div>
 
+      <div class="about-links">
+        <a href="https://www.instagram.com/kyungjun.archive" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/max-gavalchin-350132305/" target="_blank">LinkedIn</a>
+        <a href="mailto:mgavalchin@gmail.com">Email</a>
+      </div>
 
-      
-  
-</body>
-</html>
+    </div>
+  </section>
 
+</div>
 
 </body>
 </html>
