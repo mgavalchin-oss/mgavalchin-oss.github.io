@@ -33,7 +33,7 @@ a:hover {
 }
 
 /* ========================================
-   NAV (MG LEFT / LINKS FAR RIGHT)
+   NAV
 ======================================== */
 .site-nav {
   display: flex;
@@ -48,7 +48,6 @@ a:hover {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* LEFT: MG */
 .nav-logo {
   font-size: 16px;
   letter-spacing: 0.18em;
@@ -56,31 +55,27 @@ a:hover {
   flex-shrink: 0;
 }
 
-/* RIGHT GROUP PUSHED FULLY RIGHT */
 .nav-links {
   display: flex;
   gap: 40px;
   list-style: none;
   margin: 0;
   padding: 0;
-
-  margin-left: auto; /* KEY: forces full right alignment */
+  margin-left: auto;
   align-items: center;
 }
 
-/* LINKS */
 .nav-link {
   font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  position: relative;
 }
 
 /* ========================================
    TOP BANNER
 ======================================== */
 .top-banner {
-  height: 260px;
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,11 +88,11 @@ a:hover {
 }
 
 /* ========================================
-   MAIN LAYOUT (ABOUT LEFT / PORTFOLIO RIGHT)
+   MAIN LAYOUT
 ======================================== */
 .main-layout {
   display: grid;
-  grid-template-columns: 32% 68%;
+  grid-template-columns: 28% 72%;
   grid-template-areas: "about portfolio";
   align-items: start;
 }
@@ -109,40 +104,52 @@ a:hover {
   grid-area: about;
   padding: 60px clamp(20px, 4vw, 60px);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
-.about-content,
+.about-content {
+  max-width: 320px;
+  margin: 0;
+}
+
+.about-name {
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0 0 14px 0;
+  line-height: 1.2;
+}
+
+.about-panel p {
+  max-width: 52ch;
+  margin: 0 0 34px 0;
+  color: #222;
+  font-size: 15.5px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+}
+
 .about-links {
   max-width: 320px;
 }
 
-.about-name {
-  font-size: 28px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 0 0 18px 0;
-  line-height: 1.1;
-  font-weight: 400;
-}
-
-.about-panel p {
-  max-width: 55ch;
-  margin: 0 0 40px 0;
-  color: #333;
-}
-
 .about-links a {
   display: block;
-  margin-bottom: 14px;
-  border-bottom: 1px solid currentColor;
+  margin-bottom: 10px;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(0,0,0,0.6);
   padding-bottom: 2px;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.about-links a:hover {
+  border-color: #000;
 }
 
 /* ========================================
-   RIGHT: PORTFOLIO
+   RIGHT: PORTFOLIO (BREATHABLE UPDATE)
 ======================================== */
 .portfolio-column {
   grid-area: portfolio;
@@ -154,7 +161,11 @@ a:hover {
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 26px;
+  gap: 34px; /* increased spacing */
+}
+
+.project-card {
+  display: block;
 }
 
 .project-card img {
@@ -162,11 +173,12 @@ a:hover {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+  transform: scale(0.98); /* slightly smaller visual presence */
   transition: transform 0.35s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* ========================================
@@ -182,10 +194,5 @@ a:hover {
 
   .portfolio-grid {
     grid-template-columns: 1fr;
-  }
-
-  .about-content,
-  .about-links {
-    max-width: 100%;
   }
 }
