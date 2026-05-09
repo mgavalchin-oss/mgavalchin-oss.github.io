@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Forum&display=swap');
 
 /* ========================================
-   BASE
+   BASE (REFINED INK + TONE)
 ======================================== */
+
 :root {
   --nav-height: 80px;
+  --ink: rgba(0,0,0,0.88);
+  --ink-soft: rgba(0,0,0,0.62);
+  --ink-faint: rgba(0,0,0,0.42);
+  --rule: rgba(0,0,0,0.08);
 }
 
 html {
@@ -15,81 +19,96 @@ body {
   margin: 0;
   font-family: "Forum", serif;
   background: #fff;
-  color: #000;
-  line-height: 1.7;
+  color: var(--ink);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* ========================================
-   LINKS
+   LINKS (SUBTLE HIERARCHY)
 ======================================== */
+
 a {
-  color: #000;
+  color: var(--ink);
   text-decoration: none;
   transition: opacity 0.25s ease;
 }
 
 a:hover {
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 /* ========================================
-   NAV
+   NAV (SOFTER PRESENCE)
 ======================================== */
+
 .site-nav {
   display: flex;
   align-items: center;
   height: var(--nav-height);
   padding: 0 60px;
+
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--rule);
 }
 
 .nav-logo {
-  font-size: 16px;
-  letter-spacing: 0.18em;
+  font-size: 15px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--ink);
   flex-shrink: 0;
 }
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 36px;
+
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 0;
-  margin-left: auto;
+
   align-items: center;
 }
 
 .nav-link {
-  font-size: 13px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
 /* ========================================
-   TOP BANNER
+   TOP BANNER (SOFTER EDGE)
 ======================================== */
+
 .top-banner {
   height: 320px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+
+  border-bottom: 1px solid var(--rule);
 }
 
 .banner-logo {
-  height: clamp(140px, 16vw, 200px);
+  height: clamp(130px, 15vw, 190px);
   width: auto;
+  opacity: 0.92;
 }
 
 /* ========================================
-   MAIN LAYOUT
+   MAIN LAYOUT (UNCHANGED)
 ======================================== */
+
 .main-layout {
   display: grid;
   grid-template-columns: 28% 72%;
@@ -98,12 +117,19 @@ a:hover {
 }
 
 /* ========================================
-   LEFT: ABOUT
+   LEFT: ABOUT (REFINED TYPOGRAPHY HIERARCHY)
 ======================================== */
+
 .about-panel {
   grid-area: about;
+
   padding: 60px clamp(20px, 4vw, 60px);
   box-sizing: border-box;
+
+  position: sticky;
+  top: calc(var(--nav-height) + 30px);
+
+  align-self: start;
 }
 
 .about-content {
@@ -112,79 +138,197 @@ a:hover {
 }
 
 .about-name {
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 400;
-  margin: 0 0 14px 0;
-  line-height: 1.2;
+  color: var(--ink);
+
+  margin: 0 0 18px 0;
+  line-height: 1.25;
 }
 
 .about-panel p {
   max-width: 52ch;
-  margin: 0 0 34px 0;
-  color: #222;
+
+  margin: 0 0 32px 0;
+
+  color: var(--ink-soft);
   font-size: 15.5px;
-  line-height: 1.75;
+  line-height: 1.85;
   letter-spacing: 0.01em;
   font-weight: 300;
 }
 
-.about-links {
-  max-width: 320px;
-}
-
 .about-links a {
   display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  border-bottom: 1px solid rgba(0,0,0,0.6);
-  padding-bottom: 2px;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
-}
 
-.about-links a:hover {
-  border-color: #000;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
+
+  color: var(--ink-soft);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
 }
 
 /* ========================================
-   RIGHT: PORTFOLIO (BREATHABLE UPDATE)
+   RIGHT: PORTFOLIO
 ======================================== */
+
 .portfolio-column {
   grid-area: portfolio;
+
   padding: 60px 50px;
   box-sizing: border-box;
-  border-left: 1px solid rgba(0,0,0,0.1);
+
+  border-left: 1px solid var(--rule);
 }
 
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 34px; /* increased spacing */
+
+  gap: 42px;
 }
 
-.project-card {
-  display: block;
-}
+/* ========================================
+   PROJECT CARDS (REFINED DEPTH)
+======================================== */
 
 .project-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+
   display: block;
-  transform: scale(0.98); /* slightly smaller visual presence */
-  transition: transform 0.35s ease;
+
+  transform: scale(0.99);
+  filter: grayscale(6%);
+
+  opacity: 0;
+
+  animation: fadeImage 0.9s ease forwards;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
 }
 
 .project-card:hover img {
   transform: scale(1.03);
+  filter: grayscale(0%);
 }
 
 /* ========================================
-   RESPONSIVE
+   CASE STUDY LAYOUT
 ======================================== */
+
+.case-study {
+  padding: 80px 60px;
+}
+
+/* ========================================
+   TOP SECTION (MORE EDITORIAL RHYTHM)
+======================================== */
+
+.case-top {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 52px;
+
+  align-items: center;
+  margin-bottom: 110px;
+}
+
+/* TEXT */
+.case-title {
+  font-size: 42px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink);
+
+  margin: 0 0 14px 0;
+  font-weight: 300;
+}
+
+.case-meta {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+
+  margin-bottom: 28px;
+}
+
+.case-description {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+
+  max-width: 60ch;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ========================================
+   FEATURE IMAGE
+======================================== */
+
+.case-feature img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ========================================
+   CASE GRID (REFINED VISUAL AIR)
+======================================== */
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 40px;
+}
+
+.case-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ========================================
+   FADE
+======================================== */
+
+@keyframes fadeImage {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE (UNCHANGED STRUCTURE)
+======================================== */
+
+@media (max-width: 1100px) {
+  .main-layout {
+    grid-template-columns: 34% 66%;
+  }
+
+  .portfolio-column {
+    padding: 50px 36px;
+  }
+}
+
 @media (max-width: 900px) {
+
   .main-layout {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -192,7 +336,33 @@ a:hover {
       "portfolio";
   }
 
+  .about-panel,
+  .portfolio-column {
+    padding: 40px 24px;
+  }
+
+  .portfolio-column {
+    border-left: none;
+    border-top: 1px solid var(--rule);
+  }
+
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .case-study {
+    padding: 30px;
+  }
+
+  .case-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 }

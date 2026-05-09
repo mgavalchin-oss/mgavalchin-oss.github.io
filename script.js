@@ -71,3 +71,8 @@ nextButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
   track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
 });
+
+
+
+
+
