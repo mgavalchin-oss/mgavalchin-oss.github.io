@@ -366,3 +366,42 @@ a:hover {
     gap: 18px;
   }
 }
+
+
+
+
+
+
+
+/* ========================================
+   PROJECT CARDS (VIDEO VERSION)
+======================================== */
+
+.project-card {
+  display: block;
+  overflow: hidden;
+}
+
+.project-card iframe {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: block;
+  border: none;
+
+  transform: scale(0.99);
+  filter: grayscale(6%);
+
+  opacity: 0;
+
+  animation: fadeImage 0.9s ease forwards;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.project-card:hover iframe {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
