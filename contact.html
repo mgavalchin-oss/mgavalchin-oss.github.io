@@ -3,71 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Max Gavalchin — Contact</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <title>Contact — Max Gavalchin</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Forum Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- Navigation -->
+  <!-- NAV -->
   <nav class="site-nav">
+
     <a href="index.html" class="nav-logo">MG</a>
+
     <ul class="nav-links">
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="Toggle Navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+
   </nav>
 
-  <!-- Header -->
-  <header class="site-header">
-    <h1>Contact Me</h1>
-    <p1>Let's create something amazing together</p1>
-  </header>
+  <!-- CONTACT PAGE -->
+  <main class="contact-page">
 
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="contact-wrapper">
-      <div class="contact-intro">
-        <p>Have a project in mind or just want to say hi? Fill out the form below, and I'll get back to you as soon as possible.</p>
+    <section class="contact-layout">
+
+      <!-- LEFT -->
+      <div class="contact-info">
+
+        <p class="contact-eyebrow">
+          Contact
+        </p>
+
+        <h1 class="contact-heading">
+          Max Gavalchin
+        </h1>
+
+        <p class="contact-description">
+          For freelance inquiries, collaborations, commissions, or general conversation, feel free to reach out.
+        </p>
+
       </div>
 
-      <form class="contact-form" action="#" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <!-- RIGHT -->
+      <div class="contact-links">
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <a href="mailto:mgavalchin@gmail.com" class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">mgavalchin@gmail.com</span>
+        </a>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+        <a 
+          href="https://www.instagram.com/kyungjun.archive"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-item"
+        >
+          <span class="contact-label">Instagram</span>
+          <span class="contact-value">@kyungjun.archive</span>
+        </a>
 
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+        <a
+          href="https://www.linkedin.com/in/max-gavalchin-350132305/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-item"
+        >
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">View Profile</span>
+        </a>
 
-  <!-- Navigation Toggle Script -->
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+      </div>
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
-    });
+    </section>
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('open');
-      });
-    });
-  </script>
+  </main>
 
 </body>
 </html>

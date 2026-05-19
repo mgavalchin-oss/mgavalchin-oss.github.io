@@ -422,28 +422,147 @@ a:hover {
 
 
 /* ========================================
+   ROOT
+======================================== */
+
+:root {
+  --nav-height: 80px;
+
+  --ink: rgba(0,0,0,0.88);
+  --ink-soft: rgba(0,0,0,0.64);
+  --ink-faint: rgba(0,0,0,0.42);
+
+  --rule: rgba(0,0,0,0.08);
+}
+
+/* ========================================
+   BASE
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family: "Forum", serif;
+
+  color: var(--ink);
+  background: #fff;
+
+  line-height: 1.75;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+::selection {
+  background: rgba(0,0,0,0.12);
+  color: #000;
+}
+
+/* ========================================
+   LINKS
+======================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  transition: opacity 0.25s ease;
+}
+
+a:hover {
+  opacity: 0.55;
+}
+
+/* ========================================
+   NAV
+======================================== */
+
+.site-nav {
+  height: var(--nav-height);
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 60px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-logo {
+  font-size: 15px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  margin-left: auto;
+
+  display: flex;
+  gap: 36px;
+
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--ink-soft);
+}
+
+.nav-link.active {
+  color: var(--ink);
+}
+
+/* ========================================
    ABOUT PAGE
 ======================================== */
 
 .about-page {
+  max-width: 1500px;
+
+  margin: 0 auto;
+
   padding:
     clamp(70px, 10vw, 140px)
     clamp(24px, 6vw, 90px)
     120px;
-
-  max-width: 1450px;
-  margin: 0 auto;
 }
 
 /* ========================================
-   INTRO LAYOUT
+   LAYOUT
 ======================================== */
 
 .about-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
 
-  gap: clamp(40px, 6vw, 90px);
+  grid-template-columns:
+    minmax(0, 1fr)
+    320px;
+
+  gap: clamp(40px, 7vw, 120px);
 
   align-items: start;
 }
@@ -456,6 +575,7 @@ a:hover {
   margin: 0 0 20px 0;
 
   font-size: 12px;
+
   letter-spacing: 0.18em;
   text-transform: uppercase;
 
@@ -463,30 +583,30 @@ a:hover {
 }
 
 .about-heading {
-  margin: 0 0 28px 0;
-
-  font-size: 42px;
-  line-height: 1.18;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-weight: 300;
-
-  color: var(--ink);
+  margin: 0 0 34px 0;
 
   max-width: 11ch;
+
+  font-size: clamp(34px, 5vw, 58px);
+
+  line-height: 1.08;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  font-weight: 300;
 }
 
 .about-description {
-  max-width: 54ch;
+  max-width: 58ch;
 }
 
 .about-description p {
   margin: 0 0 30px 0;
 
   font-size: 15.5px;
-  line-height: 1.85;
-  letter-spacing: 0.01em;
-  font-weight: 300;
+
+  line-height: 1.9;
 
   color: var(--ink-soft);
 }
@@ -497,36 +617,56 @@ a:hover {
 
 .about-headshot-wrap {
   position: sticky;
+
   top: calc(var(--nav-height) + 40px);
 }
 
 .about-headshot {
   width: 100%;
+
   aspect-ratio: 4 / 5;
 
   object-fit: cover;
+
   display: block;
 
-  filter: grayscale(8%);
+  background: #f6f6f4;
+
+  padding: 8px;
+
+  border: 1px solid rgba(0,0,0,0.05);
 
   transform: scale(0.99);
 
+  filter: grayscale(5%);
+
   opacity: 0;
 
-  animation: fadeImage 0.9s ease forwards;
+  animation: fadeImage 0.9s cubic-bezier(.22,.61,.36,1) forwards;
 
   transition:
     transform 0.5s ease,
     filter 0.5s ease;
-
-  border: 1px solid rgba(0,0,0,0.05);
-  padding: 8px;
-  background: #f7f7f5;
 }
 
 .about-headshot:hover {
-  transform: scale(1.02);
+  transform: scale(1.015);
+
   filter: grayscale(0%);
+}
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+@keyframes fadeImage {
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
 }
 
 /* ========================================
@@ -535,33 +675,301 @@ a:hover {
 
 @media (max-width: 950px) {
 
+  .site-nav {
+    padding: 0 24px;
+  }
+
   .about-page {
+
     padding:
-      48px
+      50px
       24px
       80px;
   }
 
   .about-intro {
     grid-template-columns: 1fr;
-    gap: 42px;
+
+    gap: 48px;
   }
 
   .about-heading {
-    font-size: 34px;
     max-width: 100%;
-    line-height: 1.2;
+
+    line-height: 1.15;
   }
 
   .about-headshot-wrap {
     position: relative;
     top: auto;
 
-    max-width: 240px;
+    max-width: 260px;
   }
 
   .about-description p {
     font-size: 15px;
-    line-height: 1.85;
   }
+
+}
+
+
+
+
+
+
+/* ========================================
+   ROOT
+======================================== */
+
+:root {
+  --nav-height: 80px;
+
+  --ink: rgba(0,0,0,0.88);
+  --ink-soft: rgba(0,0,0,0.62);
+  --ink-faint: rgba(0,0,0,0.42);
+
+  --rule: rgba(0,0,0,0.08);
+}
+
+/* ========================================
+   BASE
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: "Forum", serif;
+
+  background: #fff;
+  color: var(--ink);
+
+  line-height: 1.75;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(0,0,0,0.12);
+  color: #000;
+}
+
+/* ========================================
+   LINKS
+======================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  transition: opacity 0.25s ease;
+}
+
+a:hover {
+  opacity: 0.55;
+}
+
+/* ========================================
+   NAV
+======================================== */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+
+  height: var(--nav-height);
+
+  padding: 0 60px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-logo {
+  font-size: 15px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 36px;
+
+  list-style: none;
+
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--ink-soft);
+}
+
+.nav-link.active {
+  color: var(--ink);
+}
+
+/* ========================================
+   CONTACT PAGE
+======================================== */
+
+.contact-page {
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(70px, 10vw, 140px)
+    clamp(24px, 6vw, 90px)
+    120px;
+}
+
+/* ========================================
+   LAYOUT
+======================================== */
+
+.contact-layout {
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.1fr;
+
+  gap: clamp(50px, 8vw, 140px);
+
+  align-items: start;
+}
+
+/* ========================================
+   LEFT SIDE
+======================================== */
+
+.contact-eyebrow {
+  margin: 0 0 18px 0;
+
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--ink-faint);
+}
+
+.contact-heading {
+  margin: 0 0 20px 0;
+
+  font-size: 26px;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  font-weight: 400;
+
+  line-height: 1.25;
+}
+
+.contact-description {
+  max-width: 42ch;
+
+  margin: 0;
+
+  font-size: 15px;
+
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+
+  font-weight: 300;
+
+  color: var(--ink-soft);
+}
+
+/* ========================================
+   RIGHT SIDE
+======================================== */
+
+.contact-links {
+  border-top: 1px solid var(--rule);
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--rule);
+}
+
+.contact-label {
+  font-size: 12px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ink-faint);
+}
+
+.contact-value {
+  font-size: 15px;
+
+  color: var(--ink-soft);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .site-nav {
+    padding: 0 24px;
+  }
+
+  .contact-page {
+
+    padding:
+      50px
+      24px
+      80px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
 }
