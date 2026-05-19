@@ -405,3 +405,163 @@ a:hover {
   transform: scale(1.03);
   filter: grayscale(0%);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   ABOUT PAGE
+======================================== */
+
+.about-page {
+  padding:
+    clamp(70px, 10vw, 140px)
+    clamp(24px, 6vw, 90px)
+    120px;
+
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   INTRO LAYOUT
+======================================== */
+
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+
+  gap: clamp(40px, 6vw, 90px);
+
+  align-items: start;
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+.about-eyebrow {
+  margin: 0 0 20px 0;
+
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--ink-faint);
+}
+
+.about-heading {
+  margin: 0 0 28px 0;
+
+  font-size: 42px;
+  line-height: 1.18;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 300;
+
+  color: var(--ink);
+
+  max-width: 11ch;
+}
+
+.about-description {
+  max-width: 54ch;
+}
+
+.about-description p {
+  margin: 0 0 30px 0;
+
+  font-size: 15.5px;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+
+  color: var(--ink-soft);
+}
+
+/* ========================================
+   HEADSHOT
+======================================== */
+
+.about-headshot-wrap {
+  position: sticky;
+  top: calc(var(--nav-height) + 40px);
+}
+
+.about-headshot {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+  display: block;
+
+  filter: grayscale(8%);
+
+  transform: scale(0.99);
+
+  opacity: 0;
+
+  animation: fadeImage 0.9s ease forwards;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 8px;
+  background: #f7f7f5;
+}
+
+.about-headshot:hover {
+  transform: scale(1.02);
+  filter: grayscale(0%);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 950px) {
+
+  .about-page {
+    padding:
+      48px
+      24px
+      80px;
+  }
+
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .about-heading {
+    font-size: 34px;
+    max-width: 100%;
+    line-height: 1.2;
+  }
+
+  .about-headshot-wrap {
+    position: relative;
+    top: auto;
+
+    max-width: 240px;
+  }
+
+  .about-description p {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+}
