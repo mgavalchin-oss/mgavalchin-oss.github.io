@@ -1,65 +1,183 @@
 
-/* ========================================
-   BASE (REFINED INK + TONE)
-======================================== */
-
-:root {
-  --nav-height: 80px;
-
-  --ink: rgba(0,0,0,0.88);
-  --ink-soft: rgba(0,0,0,0.62);
-  --ink-faint: rgba(0,0,0,0.42);
-  --rule: rgba(0,0,0,0.08);
-
-  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #fff;
-  color: var(--ink);
-  line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, Helvetica, sans-serif
-}
-
-.about-name,
-.case-title,
-.contact-heading,
-.about-heading,
-.nav-logo {
-  font-family: "Forum", serif;
-}
-
-
-p, span, li, a, button {
-  font-family: inherit;
-}
-
-
-/* ========================================
-   LINKS (SUBTLE HIERARCHY)
-======================================== */
-
-a {
-  color: var(--ink);
-  text-decoration: none;
-  transition: opacity 0.25s ease;
-}
-
-a:hover {
-  opacity: 0.55;
-}
-
+:root{
+  --nav:72px;
+  
+  --left:300px;
+  
+  --gap:22px;
+  
+  --bg:#fbfbfa;
+  
+  --text:#151515;
+  
+  --muted:#7d7d7d;
+  
+  --line:#ececec;
+  }
+  
+  body{
+  
+  font-family:
+  "Inter",
+  sans-serif;
+  
+  font-size:15px;
+  
+  line-height:1.65;
+  
+  background:var(--bg);
+  
+  color:var(--text);
+  
+  }
+  
+  
+  
+  /* HERO */
+  
+  .hero{
+  
+  padding:90px 40px 60px;
+  
+  min-height:22vh;
+  
+  border-bottom:1px solid var(--line);
+  
+  }
+  
+  .hero h1{
+  
+  font-family:"Forum",serif;
+  
+  font-size:3rem;
+  
+  font-weight:400;
+  
+  letter-spacing:.03em;
+  
+  }
+  
+  .hero p{
+  
+  margin-top:10px;
+  
+  color:var(--muted);
+  
+  font-size:.9rem;
+  
+  }
+  
+  
+  
+  /* GRID */
+  
+  .work{
+  
+  display:grid;
+  
+  grid-template-columns:
+  repeat(2,minmax(0,1fr));
+  
+  gap:22px;
+  
+  padding:32px;
+  
+  }
+  
+  .project img{
+  
+  width:100%;
+  
+  aspect-ratio:1/1;
+  
+  object-fit:cover;
+  
+  }
+  
+  
+  
+  /* METADATA */
+  
+  .meta{
+  
+  padding-top:10px;
+  
+  }
+  
+  .meta small{
+  
+  display:block;
+  
+  font-size:.66rem;
+  
+  letter-spacing:.14em;
+  
+  text-transform:uppercase;
+  
+  color:#8f8f8f;
+  
+  margin-bottom:6px;
+  
+  }
+  
+  .meta h3{
+  
+  font-size:.92rem;
+  
+  font-weight:500;
+  
+  }
+  
+  
+  
+  /* ABOUT */
+  
+  .about{
+  
+  padding:48px 36px;
+  
+  }
+  
+  .about h2{
+  
+  font-size:1rem;
+  
+  letter-spacing:.14em;
+  
+  margin-bottom:24px;
+  
+  }
+  
+  .about p{
+  
+  max-width:240px;
+  
+  color:#5f5f5f;
+  
+  }
+  
+  
+  
+  /* LINKS */
+  
+  .links a{
+  
+  display:inline-block;
+  
+  padding:8px 0;
+  
+  font-size:.82rem;
+  
+  color:#666;
+  
+  }
+  
+  .links a:hover{
+  
+  color:black;
+  
+  }
+  
 /* ========================================
    GLOBAL NAV (USED EVERYWHERE)
 ======================================== */
@@ -152,7 +270,7 @@ gap:24px;
 ======================================== */
 
 .top-banner {
-  height: 320px;
+  height: 220px;
 
   display: flex;
   align-items: center;
@@ -162,7 +280,7 @@ gap:24px;
 }
 
 .banner-logo {
-  height: clamp(130px, 15vw, 190px);
+  height: clamp(110px, 12vw, 165px);
   width: auto;
   opacity: 0.92;
 }
