@@ -102,7 +102,7 @@
           </h3>
           
           <p class="project-desc">
-            Short one-line project description goes here.
+            Character cards that transform exposure therapy into a playful, approachable experience.
           </p>
           
           <p class="project-tags">
@@ -182,7 +182,7 @@
               </h3>
               
               <p class="project-desc">
-                Music festival brand identity.
+                Comprehensive map/guide to parking on RISD'S campus. 
               </p>
               
               <p class="project-tags">
@@ -207,7 +207,10 @@
       
         <div class="project-info">
           <h3 class="project-title">The Golden</h3>
-          <p class="project-desc">Narrative system exploring layered storytelling.</p>
+          <p class="project-desc">Restaurant Identity with Art Noveau inspired shapes.</p>
+          <p class="project-tags">
+            branding / motion / identity
+          </p>
         </div>
       </a>
 
@@ -218,6 +221,9 @@
         <div class="project-info">
           <h3 class="project-title">2DT</h3>
           <p class="project-desc">Typographic exploration of dimensional transition.</p>
+          <p class="project-tags">
+            print / timeline  / research
+          </p>
         </div>
       </a>
       
@@ -293,10 +299,12 @@
 
       </div>
 
+     
       <div class="about-links">
         <a href="https://www.instagram.com/kyungjun.archive" target="_blank">Instagram</a>
         <a href="https://www.linkedin.com/in/max-gavalchin-350132305/" target="_blank">LinkedIn</a>
         <a href="mailto:mgavalchin@gmail.com">Email</a>
+        <a href="https://drive.google.com/file/d/1soTqElkrnrOMbFdmtTMcoCUZZBhSsBuT/view?usp=drive_link" target="_blank">Resume</a>
 
         <div class="about-skills">
 
@@ -335,6 +343,23 @@
   </section>
 
 </div>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
